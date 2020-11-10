@@ -327,6 +327,7 @@
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 18;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAgregarCiudad
             // 
@@ -336,6 +337,7 @@
             this.btnAgregarCiudad.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarCiudad.TabIndex = 17;
             this.btnAgregarCiudad.UseVisualStyleBackColor = true;
+            this.btnAgregarCiudad.Click += new System.EventHandler(this.btnAgregarCiudad_Click);
             // 
             // txtCodAuto
             // 
