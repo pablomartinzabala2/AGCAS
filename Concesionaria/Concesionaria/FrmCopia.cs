@@ -17,7 +17,7 @@ namespace Concesionaria
         }
 
         private void btnCopia_Click(object sender, EventArgs e)
-        {
+        {   //copia de seguridad
             string cad = Clases.cConexion.Cadenacon();
             try
             {
