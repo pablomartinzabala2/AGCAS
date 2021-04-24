@@ -309,5 +309,53 @@ namespace Concesionaria.Clases
             }
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetCuotasAnterioresAdeudadesxFecha(string Patente, string Apellido, DateTime FechaDesdde,DateTime  FechaHasta)
+        {
+            string sql = "";
+            if (Patente =="" && Apellido =="")
+            {
+                sql = "select * from CuotasAnteriores ";
+                sql = sql + " where Saldo >0 ";
+                sql = sql + " and FechaVencimiento >=" + "'" + FechaDesdde.ToShortDateString() + "'";
+                sql = sql + " and FechaVencimiento<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            }
+            if (Patente != "" && Apellido =="")
+            {
+                sql = "select * from CuotasAnteriores ";
+                sql = sql + " where Patente like " + "'%" + Patente + "%'";
+                sql = sql + " and Saldo >0 ";
+                sql = sql + " and FechaVencimiento >=" + "'" + FechaDesdde.ToShortDateString() + "'";
+                sql = sql + " and FechaVencimiento<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            }
+            if (Patente != "" && Apellido != "")
+            {
+                sql = "select * from CuotasAnteriores ";
+                sql = sql + " where Patente like " + "'%" + Patente + "%'";
+                sql = sql + " and apellido like " + "'%" + Apellido  + "%'";
+                sql = sql + " and Saldo >0 ";
+                sql = sql + " and FechaVencimiento >=" + "'" + FechaDesdde.ToShortDateString() + "'";
+                sql = sql + " and FechaVencimiento<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            }
+
+            if (Patente == "" && Apellido != "")
+            {
+                sql = "select * from CuotasAnteriores ";
+                sql = sql + " where apellido like " + "'%" + Apellido + "%'";
+                sql = sql + " and Saldo >0 ";
+                sql = sql + " and FechaVencimiento >=" + "'" + FechaDesdde.ToShortDateString() + "'";
+                sql = sql + " and FechaVencimiento<=" + "'" + FechaHasta.ToShortDateString() + "'";
+            }
+
+            return cDb.ExecuteDataTable(sql);
+        }
+
+
+        public DataTable GetDocumentosAnterioresxCodigo(Int32 CodGrupo)
+        {
+            string sql = "select * from CuotasAnteriores ";
+            sql = sql + " where CodGrupo=" + CodGrupo.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

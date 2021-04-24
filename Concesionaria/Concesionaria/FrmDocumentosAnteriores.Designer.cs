@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmb_CodMarca = new System.Windows.Forms.ComboBox();
@@ -56,8 +58,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCuotas)).BeginInit();
             this.SuspendLayout();
@@ -99,6 +99,23 @@
             this.groupBox1.Size = new System.Drawing.Size(588, 622);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 180);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(67, 17);
+            this.label10.TabIndex = 55;
+            this.label10.Text = "Dirección";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDireccion.Location = new System.Drawing.Point(103, 180);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(425, 23);
+            this.txtDireccion.TabIndex = 54;
             // 
             // txtAnio
             // 
@@ -339,23 +356,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Patente";
             // 
-            // txtDireccion
-            // 
-            this.txtDireccion.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDireccion.Location = new System.Drawing.Point(103, 180);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(425, 23);
-            this.txtDireccion.TabIndex = 54;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 180);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 17);
-            this.label10.TabIndex = 55;
-            this.label10.Text = "Dirección";
-            // 
             // FrmDocumentosAnteriores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,6 +368,7 @@
             this.Name = "FrmDocumentosAnteriores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de documentos anteriores";
+            this.Load += new System.EventHandler(this.FrmDocumentosAnteriores_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCuotas)).EndInit();

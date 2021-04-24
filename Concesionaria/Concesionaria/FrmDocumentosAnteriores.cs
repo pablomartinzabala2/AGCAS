@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Concesionaria.Clases;
 namespace Concesionaria
 {
     public partial class FrmDocumentosAnteriores : Form
@@ -370,6 +371,25 @@ namespace Concesionaria
         {
             Clases.cFunciones fun = new Clases.cFunciones();
             e.Handled = fun.SoloNumerosEnteros(e);
+        }
+
+        private void FrmDocumentosAnteriores_Load(object sender, EventArgs e)
+        {
+            if (Principal.CodigoPrincipalAbm!=null)
+            {
+                BuscarDocumentos(Convert.ToInt32(Principal.CodigoPrincipalAbm));
+            }
+        }
+
+        private void BuscarDocumentos(Int32 CodGrupo)
+        {   //
+            cCuotasAnteriores cuota = new Clases.cCuotasAnteriores();
+            DataTable trdo = cuota.GetDocumentosAnterioresxCodigo(CodGrupo);
+            if (trdo.Rows.Count >0)
+            {
+                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+            }
         }
     }
 }

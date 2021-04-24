@@ -41,7 +41,8 @@ namespace Concesionaria
             Double Cobranza = 0;
             Clases.cFunciones fun = new Clases.cFunciones();
             cCobranza objCobranza = new cCobranza();
-            string Col = "CodVenta;Patente;Descripcion;Apellido;ImporteVenta;Cuotas;Cheque;Cobranza;Prenda;Telefono";
+            string Col = "CodVenta;Patente;Descripcion;Apellido;ImporteVenta;Cuotas;Cheque;Cobranza;Prenda;Telefono;Tipo";
+            //Tipo se usa para saber a donde tiene que abrir
             Clases.cCuota cuota = new Clases.cCuota();
             Clases.cCheque objCheque = new Clases.cCheque();
             cPrenda objPrenda = new cPrenda();
@@ -51,6 +52,7 @@ namespace Concesionaria
             Double Prenda = 0;
             Double Cheque = 0;
             string val = "";
+            int TipoPantalla = 1;
             DataTable tb = new DataTable();
             tb = fun.CrearTabla(Col);
             DataTable trdo = objVenta.GetVentasxFecha(FechaDesde, FechaHasta, txtPatente.Text.Trim(), Apellido);
@@ -75,9 +77,33 @@ namespace Concesionaria
                     val = val + ";" + Cobranza.ToString();
                     val = val + ";" + Prenda.ToString();
                     val = val + ";" + telefono.ToString();
+                    val = val + ";" + TipoPantalla.ToString();
                     tb = fun.AgregarFilas(tb, val);
                 }
             }
+            TipoPantalla = 2;
+            //agrego las cuotas anteriores
+            cCuotasAnteriores cuotasAnt = new cCuotasAnteriores();
+            DataTable tcuotasAnt = cuotasAnt.GetCuotasAnterioresAdeudadesxFecha(txtPatente.Text, txtApellido.Text, FechaDesde, FechaHasta);
+            for (int i = 0; i < tcuotasAnt.Rows.Count; i++)
+            {
+                val = tcuotasAnt.Rows[i]["CodGrupo"].ToString();
+                val = val + ";" + tcuotasAnt.Rows[i]["Patente"].ToString();
+                val = val + ";" + tcuotasAnt.Rows[i]["Descripcion"].ToString();
+                val = val + ";" + tcuotasAnt.Rows[i]["Apellido"].ToString();
+                val = val + ";" + tcuotasAnt.Rows[i]["Importe"].ToString();
+                val = val + ";" + tcuotasAnt.Rows[i]["Importe"].ToString();
+                val = val + ";";
+                val = val + ";";
+                val = val + ";";
+                val = val + ";" + tcuotasAnt.Rows[i]["Telefono"].ToString();
+                val = val + ";" + TipoPantalla.ToString();
+                tb = fun.AgregarFilas(tb, val);
+
+            }
+            
+            // 
+
             Double TotalVenta = fun.TotalizarColumna(tb, "ImporteVenta");
             Double TotalCuotas = fun.TotalizarColumna(tb, "Cuotas");
             Double TotalPrenda = fun.TotalizarColumna(tb, "Prenda");
@@ -144,12 +170,25 @@ namespace Concesionaria
             {
                 return;
             }
+            string Tipo = Grilla.CurrentRow.Cells[10].Value.ToString();
+            if (Tipo =="1")
+            {
+                string CodVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
+                Principal.CodigoPrincipalAbm = CodVenta;
+                Principal.CodigoSenia = null;
+                FrmVenta form = new FrmVenta();
+                form.ShowDialog();
+            }
+            if (Tipo == "2")
+            {    
+                string CodGrupo = Grilla.CurrentRow.Cells[0].Value.ToString();
+                Principal.CodigoPrincipalAbm = CodGrupo;
+                Principal.CodigoSenia = null;
+                FrmDocumentosAnteriores form = new FrmDocumentosAnteriores();
+                form.ShowDialog();
+            }
 
-            string CodVenta = Grilla.CurrentRow.Cells[0].Value.ToString();
-            Principal.CodigoPrincipalAbm = CodVenta;
-            Principal.CodigoSenia = null;
-            FrmVenta form = new FrmVenta();
-            form.ShowDialog();
+
         }
     }
 }
