@@ -629,5 +629,22 @@ namespace Concesionaria.Clases
             }
             return Encontro;
         }
+
+        public void AnchoColumnas(DataGridView Grilla, string Lista)
+        {
+            string[] Columnas = Lista.Split(';');
+            int ancho = Grilla.Width - 60;
+            int anchoCol = 0;
+            int i = 0;
+            foreach (string Col in Columnas)
+            {
+                anchoCol = Convert.ToInt32(Col) * ancho / 100;
+                Grilla.Columns[i].Width = anchoCol;
+                if (Col == "0")
+                    Grilla.Columns[i].Visible = false;
+                i++;
+
+            }
+        }
     }
 }

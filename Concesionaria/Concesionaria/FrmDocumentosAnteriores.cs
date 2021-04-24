@@ -389,7 +389,22 @@ namespace Concesionaria
             {
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
+                txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
+                if (trdo.Rows[0]["CodMarca"].ToString()!="")
+                {
+                    cmb_CodMarca.SelectedValue = trdo.Rows[0]["CodMarca"].ToString();
+                }
+                txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
+                txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
             }
+            cFunciones fun = new cFunciones();
+            DataTable tplan = cuota.GetPlan(CodGrupo);
+            tplan = fun.TablaaMiles(tplan, "Importe");
+            tplan = fun.TablaaMiles(tplan, "Saldo");
+            GrillaCuotas.DataSource = tplan;
+            fun.AnchoColumnas(GrillaCuotas, "20;20;20;20;20");
+            btnGrabar.Visible = false;
         }
     }
 }

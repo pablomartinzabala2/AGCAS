@@ -128,6 +128,7 @@ namespace Concesionaria
             tb = fun.TablaaMiles(tb, "Prenda");
             Grilla.DataSource = tb;
             Grilla.Columns[0].Visible = false;
+            Grilla.Columns[10].Visible = false;
             Grilla.Columns[4].HeaderText = "Total";
             Grilla.Columns[5].HeaderText = "Documentos";
             for (int i = 0; i < Grilla.Rows.Count - 1; i++)

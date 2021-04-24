@@ -357,5 +357,15 @@ namespace Concesionaria.Clases
             sql = sql + " where CodGrupo=" + CodGrupo.ToString();
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetPlan(Int32 CodGrupo)
+        {
+            string sql = "select cuota,Importe,FechaVencimiento,fechaPago,Saldo";
+            sql = sql + " from CuotasAnteriores ";
+            sql = sql + " where CodGrupo=" + CodGrupo.ToString();
+            sql = sql + " order by Cuota";
+            return cDb.ExecuteDataTable(sql);
+                
+        }
     }
 }
