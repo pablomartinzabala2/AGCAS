@@ -112,5 +112,40 @@ namespace Concesionaria.Clases
             
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetDedudaCobranzaGeneralxFecha(string Apellido, string Patente,DateTime FechaDesde, DateTime FechaHasta)
+        {
+            int b = 0;
+            string Rdo = "";
+            string a = "0", p = "0";
+
+            if (Apellido !=null)
+            {
+                if (Apellido != "")
+                    a = "1";
+            }
+            
+            if (Patente != "")
+                p = "1";
+            Rdo = a + p;
+            string sql = " select * from CobranzaGeneral ";
+            sql = sql + " where Saldo >0 ";
+            switch (Rdo)
+            {
+                case "01":
+                    sql = sql + " and Patente like " + "'%" + Patente + "%'"; 
+                    break;
+                case "10":
+                    sql = sql + " and Apellido like " + "'%" + Apellido + "%'"; 
+                    break;
+                case "11":
+                    sql = sql + " and Patente like " + "'%" + Patente + "%'";
+                    sql = sql + " and Apellido like " + "'%" + Apellido + "%'"; 
+                    break;
+            }  
+            sql = sql + " and Fecha>=" + "'" + FechaDesde + "'";
+            sql = sql + " and Fecha<=" + "'" + FechaHasta + "'";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

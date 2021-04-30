@@ -169,11 +169,26 @@ namespace Concesionaria
                 Valor = Valor + ";";
                 tResul = fun.AgregarFilas(tResul, Valor);
             }
+            Double TotalImporte = 0;
+            Double TotalSaldo = 0;
+            TotalImporte = fun.TotalizarColumna(tResul, "Importe");
+            TotalSaldo = fun.TotalizarColumna(tResul, "Saldo");
+            Valor = ";" + "Total";
+            Valor = Valor + ";;;;;;";
+            Valor = Valor + ";" + TotalImporte.ToString();
+            Valor = Valor + ";" + TotalSaldo.ToString();
+            Valor = Valor + ";";
+            tResul = fun.AgregarFilas(tResul, Valor);
             tResul = fun.TablaaMiles(tResul, "Importe");
             tResul = fun.TablaaMiles(tResul, "Saldo");
             Grilla.DataSource = tResul;
             Grilla.Columns[0].Visible = false;
             Pintar();
+            for (int i = 0; i < Grilla.Rows.Count - 1; i++)
+            {
+                if (i == (Grilla.Rows.Count - 2))
+                    Grilla.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+            }
         }
 
         private void btnCobroPrenda_Click(object sender, EventArgs e)

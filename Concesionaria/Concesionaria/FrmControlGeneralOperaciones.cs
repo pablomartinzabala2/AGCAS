@@ -92,7 +92,7 @@ namespace Concesionaria
                 val = val + ";" + tcuotasAnt.Rows[i]["Descripcion"].ToString();
                 val = val + ";" + tcuotasAnt.Rows[i]["Apellido"].ToString();
                 val = val + ";" + tcuotasAnt.Rows[i]["Importe"].ToString();
-                val = val + ";" + tcuotasAnt.Rows[i]["Importe"].ToString();
+                val = val + ";";
                 val = val + ";";
                 val = val + ";";
                 val = val + ";";
@@ -101,7 +101,26 @@ namespace Concesionaria
                 tb = fun.AgregarFilas(tb, val);
 
             }
-            
+            TipoPantalla = 3;  
+            //Cobranza general 
+            cCobranzaGeneral cobGen = new cCobranzaGeneral();
+            DataTable tbCobGen = cobGen.GetDedudaCobranzaGeneralxFecha(Apellido, txtPatente.Text, FechaDesde, FechaHasta);
+            for (int i = 0; i < tbCobGen.Rows.Count; i++)
+            {
+                val = tbCobGen.Rows[i]["CodCobranza"].ToString();
+                val = val + ";" + tbCobGen.Rows[i]["Patente"].ToString();
+                val = val + ";" + tbCobGen.Rows[i]["Descripcion"].ToString();
+                val = val + ";" + tbCobGen.Rows[i]["Cliente"].ToString();
+                val = val + ";" + tbCobGen.Rows[i]["Importe"].ToString();
+                val = val + ";" + tbCobGen.Rows[i]["Importe"].ToString();
+                val = val + ";";
+                val = val + ";" + tbCobGen.Rows[i]["Importe"].ToString();
+                val = val + ";";
+                val = val + ";" + tbCobGen.Rows[i]["Telefono"].ToString();
+                val = val + ";" + TipoPantalla.ToString();
+                tb = fun.AgregarFilas(tb, val);
+
+            }
             // 
 
             Double TotalVenta = fun.TotalizarColumna(tb, "ImporteVenta");
