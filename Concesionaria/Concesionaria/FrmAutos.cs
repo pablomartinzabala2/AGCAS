@@ -48,7 +48,7 @@ namespace Concesionaria
             if (cmbCiudad.Items.Count >0)
                 cmbCiudad.SelectedValue = 1;
             fun.LlenarCombo(cmbDocumento, "TipoDocumento", "Nombre", "CodTipoDoc");
-            if (cmbDocumento.Items.Count > 0)
+            if (cmbDocumento.Items.Count > 1)
                 cmbDocumento.SelectedIndex = 1;
             cmbDocumento.Enabled = false;
             fun.LlenarCombo(CmbBarrio, "Barrio", "Nombre", "CodBarrio");
