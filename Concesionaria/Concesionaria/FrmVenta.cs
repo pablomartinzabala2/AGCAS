@@ -506,6 +506,7 @@ namespace Concesionaria
             GrillaCuotas.Columns[3].HeaderText = "Importe s/Interés";
             txtTotalDocumentos.Text = txtCapital.Text;
             CalcularSubTotal();
+            fun.AnchoColumnas(GrillaCuotas, "25;25;25;25");
         }
 
         private void txtPrecioVenta_KeyPress(object sender, KeyPressEventArgs e)

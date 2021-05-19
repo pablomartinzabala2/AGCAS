@@ -69,6 +69,7 @@
     <Compile Include="Clases\cCompra.cs" />
     <Compile Include="Clases\cConexion.cs" />
     <Compile Include="Clases\cConfiguracion.cs" />
+    <Compile Include="Clases\cContador.cs" />
     <Compile Include="Clases\cCosto.cs" />
     <Compile Include="Clases\cCuota.cs" />
     <Compile Include="Clases\cCuotasAnteriores.cs" />
