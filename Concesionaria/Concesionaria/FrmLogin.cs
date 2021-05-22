@@ -50,7 +50,7 @@ namespace Concesionaria
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            ActualizarContador();
+          //  ActualizarContador();
         }
 
         private void ActualizarContador()
