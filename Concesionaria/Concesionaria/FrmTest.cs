@@ -21,5 +21,11 @@ namespace Concesionaria
             Int32 x = Convert.ToInt32(textBox1.Text);
             textBox1.Text = x.ToString("0N"); 
         }
+
+        private void FrmTest_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
