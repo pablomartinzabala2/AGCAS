@@ -44,6 +44,7 @@
             this.tarjetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAgregarCosto = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +55,7 @@
             this.mnuControlOperaciones = new System.Windows.Forms.ToolStripMenuItem();
             this.crearAlertaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlDeOperacionesGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresoDeChequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.cobranzasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,9 +89,6 @@
             this.registrarGastosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -100,8 +99,9 @@
             this.BtnCopia = new System.Windows.Forms.ToolStripButton();
             this.btnConsultaAgenda = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.mnuAgregarCosto = new System.Windows.Forms.ToolStripMenuItem();
-            this.ingresoDeChequeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -241,6 +241,14 @@
             this.editMenu.Size = new System.Drawing.Size(101, 21);
             this.editMenu.Text = "Operaciones";
             // 
+            // mnuAgregarCosto
+            // 
+            this.mnuAgregarCosto.ImageTransparentColor = System.Drawing.Color.Black;
+            this.mnuAgregarCosto.Name = "mnuAgregarCosto";
+            this.mnuAgregarCosto.Size = new System.Drawing.Size(293, 22);
+            this.mnuAgregarCosto.Text = "Agregar Costo";
+            this.mnuAgregarCosto.Click += new System.EventHandler(this.mnuAgregarCosto_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
@@ -307,6 +315,13 @@
             this.controlDeOperacionesGeneralesToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
             this.controlDeOperacionesGeneralesToolStripMenuItem.Text = "Control de operaciones Generales";
             this.controlDeOperacionesGeneralesToolStripMenuItem.Click += new System.EventHandler(this.controlDeOperacionesGeneralesToolStripMenuItem_Click);
+            // 
+            // ingresoDeChequeToolStripMenuItem
+            // 
+            this.ingresoDeChequeToolStripMenuItem.Name = "ingresoDeChequeToolStripMenuItem";
+            this.ingresoDeChequeToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.ingresoDeChequeToolStripMenuItem.Text = "Ingreso de Cheque";
+            this.ingresoDeChequeToolStripMenuItem.Click += new System.EventHandler(this.ingresoDeChequeToolStripMenuItem_Click);
             // 
             // viewMenu
             // 
@@ -586,22 +601,6 @@
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
-            // 
             // newToolStripButton
             // 
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -705,20 +704,21 @@
             this.toolStripButton2.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton2.Text = "Vehículos";
             // 
-            // mnuAgregarCosto
+            // statusStrip
             // 
-            this.mnuAgregarCosto.ImageTransparentColor = System.Drawing.Color.Black;
-            this.mnuAgregarCosto.Name = "mnuAgregarCosto";
-            this.mnuAgregarCosto.Size = new System.Drawing.Size(293, 22);
-            this.mnuAgregarCosto.Text = "Agregar Costo";
-            this.mnuAgregarCosto.Click += new System.EventHandler(this.mnuAgregarCosto_Click);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
             // 
-            // ingresoDeChequeToolStripMenuItem
+            // toolStripStatusLabel
             // 
-            this.ingresoDeChequeToolStripMenuItem.Name = "ingresoDeChequeToolStripMenuItem";
-            this.ingresoDeChequeToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
-            this.ingresoDeChequeToolStripMenuItem.Text = "Ingreso de Cheque";
-            this.ingresoDeChequeToolStripMenuItem.Click += new System.EventHandler(this.ingresoDeChequeToolStripMenuItem_Click);
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
             // 
             // Principal
             // 

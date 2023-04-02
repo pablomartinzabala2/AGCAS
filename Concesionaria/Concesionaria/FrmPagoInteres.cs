@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data;
+using Concesionaria.Clases;
 namespace Concesionaria
 {
     public partial class FrmPagoInteres : Form
@@ -66,14 +66,17 @@ namespace Concesionaria
                 MessageBox.Show("La fecha de pago es incorrecta", Clases.cMensaje.Mensaje());
                 return;
             }
-
+            
             string Descripcion = "PAGO DE INTERÉS " + txtNombre.Text.ToString();
             Int32 CodPrestamo = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
             double Importe = fun.ToDouble(txtMontoApagar.Text);
+            cPrestamo Prestamo = new cPrestamo(); 
+
             Clases.cMovimiento mov = new Clases.cMovimiento();
             Clases.cPagoIntereses pago = new Clases.cPagoIntereses();
             pago.RegistrarPago(CodPrestamo, Fecha, Importe);
+            Prestamo.RegistrarDevolucion(CodPrestamo, Fecha);
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, -1 * Importe, 0, 0, 0, 0, Fecha, Descripcion);
             MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
             CargarGrilla(CodPrestamo);
@@ -85,7 +88,8 @@ namespace Concesionaria
             DataTable trdo = pago.GetInteresesPagadosxCodPrestamo(CodPrestamo);
             trdo = fun.TablaaFechas(trdo, "Importe");
             Grilla.DataSource = trdo;
-            Grilla.Columns[0].Visible = false; 
+            fun.AnchoColumnas(Grilla, "0;50;50");
+           
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
