@@ -7,7 +7,7 @@ namespace Concesionaria.Clases
 {
     public class cPrestamoCobrar
     {
-        public void InsertarPrestamo(string Nombre, string Telefono, string Dirección, DateTime Fecha, double Importe,
+        public Int32  InsertarPrestamo(string Nombre, string Telefono, string Dirección, DateTime Fecha, double Importe,
             double PorcentajeInteres, DateTime FechaVencimiento, Double ImporteaPagar)
         {
             string sql = "insert into PrestamoCobrar(Nombre,Direccion,Telefono";
@@ -21,7 +21,7 @@ namespace Concesionaria.Clases
             sql = sql + "," + "'" + FechaVencimiento.ToShortDateString() + "'";
             sql = sql + "," + ImporteaPagar.ToString().Replace(",", ".");
             sql = sql + ")";
-            cDb.ExecutarNonQuery(sql);
+            return cDb.EjecutarEscalar(sql);
         }
     }
 }

@@ -102,6 +102,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.registrarPrestamoACobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -230,6 +231,7 @@
             this.cutToolStripMenuItem,
             this.toolStripSeparator7,
             this.MenuPrestamo,
+            this.registrarPrestamoACobrarToolStripMenuItem,
             this.registrarDocumentosToolStripMenuItem,
             this.registrarCobranzasGeneralesToolStripMenuItem,
             this.mnuControlOperaciones,
@@ -720,6 +722,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // registrarPrestamoACobrarToolStripMenuItem
+            // 
+            this.registrarPrestamoACobrarToolStripMenuItem.Name = "registrarPrestamoACobrarToolStripMenuItem";
+            this.registrarPrestamoACobrarToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.registrarPrestamoACobrarToolStripMenuItem.Text = "Registrar Prestamo a Cobrar";
+            this.registrarPrestamoACobrarToolStripMenuItem.Click += new System.EventHandler(this.registrarPrestamoACobrarToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -819,6 +828,7 @@
         private System.Windows.Forms.ToolStripMenuItem ventasPorTarjetasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregarCosto;
         private System.Windows.Forms.ToolStripMenuItem ingresoDeChequeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarPrestamoACobrarToolStripMenuItem;
     }
 }
 

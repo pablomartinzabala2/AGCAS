@@ -81,6 +81,7 @@
     <Compile Include="Clases\cCuotasAnteriores.cs" />
     <Compile Include="Clases\cDb.cs" />
     <Compile Include="Clases\cDetallePrestamo.cs" />
+    <Compile Include="Clases\cDetallePrestamoCobrar.cs" />
     <Compile Include="Clases\cDiferenciaTransferencia.cs" />
     <Compile Include="Clases\cEfectivoaPagar.cs" />
     <Compile Include="Clases\cEntidad.cs" />

@@ -51,7 +51,7 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar una fecha válida para continuar", Clases.cMensaje.Mensaje());
                 return;
             }
-            dpFechaVto
+           
             if (fun.ValidarFecha(dpFechaVto.Value.ToShortDateString()) == false)
             {
                 MessageBox.Show("Debe ingresar una fecha de vencimiento válidad para continuar", Clases.cMensaje.Mensaje());
@@ -65,22 +65,23 @@ namespace Concesionaria
                 return;
             }
             // Clases.cFunciones fun = new Clases.cFunciones();
+            Int32 CodPrestamo = 0;
             string Nombre = txtNombre.Text;
             string Telefono = txtTelefono.Text;
             string Dirección = txtDireccion.Text;
-            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            DateTime Fecha = Convert.ToDateTime(dpFecha.Value);
             double Importe = fun.ToDouble(txtImporte.Text);
             double PorcentajeInteres = Convert.ToDouble(txtPorcentaje.Text);
-            DateTime FechaVencimiento = Convert.ToDateTime(txtFechaVencimiento.Text);
+            DateTime FechaVencimiento = Convert.ToDateTime(dpFechaVto.Value);
             double ImporteaPagar = fun.ToDouble(txtMontoApagar.Text);
 
             cPrestamoCobrar prestamo = new Clases.cPrestamoCobrar();
 
-            prestamo.InsertarPrestamo(Nombre, Telefono, Dirección, Fecha, Importe, PorcentajeInteres, FechaVencimiento, ImporteaPagar);
-            Int32 CodPrestamo = prestamo.GetMaxPrestamo();
+            CodPrestamo = prestamo.InsertarPrestamo(Nombre, Telefono, Dirección, Fecha, Importe, PorcentajeInteres, FechaVencimiento, ImporteaPagar);
+           // Int32 CodPrestamo = prestamo.GetMaxPrestamo();
             string Descripcion = "INGRESO PRESTAMO " + txtNombre.Text.ToUpper();
             string DescripcionDetalle = "INGRESO PRESTAMO " + Importe.ToString().Replace(",", ".");
-            Clases.cDetallePrestamo detalle = new Clases.cDetallePrestamo();
+            cDetallePrestamoCobrar detalle = new Clases.cDetallePrestamoCobrar();
             detalle.InsertarDetallePrestamo(CodPrestamo, Importe, DescripcionDetalle, Fecha);
             Clases.cMovimiento mov = new Clases.cMovimiento();
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, (-1)*Importe, 0, 0, 0, 0, Fecha, Descripcion);

@@ -639,6 +639,12 @@ namespace Concesionaria
         {
             FrmIngresoCheque frm = new FrmIngresoCheque();
             frm.Show();
-        }      
+        }
+
+        private void registrarPrestamoACobrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPrestamoCobrar frm = new FrmPrestamoCobrar();
+            frm.Show();
+        }
     }
 }
