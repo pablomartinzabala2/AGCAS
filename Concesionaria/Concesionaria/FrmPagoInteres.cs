@@ -80,6 +80,7 @@ namespace Concesionaria
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, -1 * Importe, 0, 0, 0, 0, Fecha, Descripcion);
             MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
             CargarGrilla(CodPrestamo);
+            GetDatosxPrestamo(CodPrestamo);
         }
         private void CargarGrilla(Int32 CodPrestamo)
         {
@@ -138,6 +139,7 @@ namespace Concesionaria
                 {
                     btnGrabar.Enabled = false;
                     btnEliminar.Enabled = false;
+                    btnModificar.Enabled = false;
                 }
             }
         }
