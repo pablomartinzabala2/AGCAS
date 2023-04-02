@@ -105,6 +105,7 @@
     <Compile Include="Clases\cPagoIntereses.cs" />
     <Compile Include="Clases\cPrenda.cs" />
     <Compile Include="Clases\cPrestamo.cs" />
+    <Compile Include="Clases\cPrestamoCobrar.cs" />
     <Compile Include="Clases\cPreVenta.cs" />
     <Compile Include="Clases\cPunitorioCobranza.cs" />
     <Compile Include="Clases\cPunitorioCuota.cs" />
@@ -538,6 +539,12 @@
     <Compile Include="FrmPagoInteres.Designer.cs">
       <DependentUpon>FrmPagoInteres.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPrestamoCobrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrestamoCobrar.Designer.cs">
+      <DependentUpon>FrmPrestamoCobrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRegistarEfectivosaPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -869,6 +876,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagoInteres.resx">
       <DependentUpon>FrmPagoInteres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrestamoCobrar.resx">
+      <DependentUpon>FrmPrestamoCobrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistarEfectivosaPagar.resx">
       <DependentUpon>FrmRegistarEfectivosaPagar.cs</DependentUpon>
