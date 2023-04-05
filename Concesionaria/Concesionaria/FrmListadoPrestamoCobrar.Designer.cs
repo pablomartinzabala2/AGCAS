@@ -36,7 +36,6 @@
             this.btnRegistrarPago = new System.Windows.Forms.Button();
             this.txtFechaDevolucion = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCobroPrenda = new System.Windows.Forms.Button();
             this.chkImpagos = new System.Windows.Forms.CheckBox();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnCobroPrenda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -135,15 +135,6 @@
             this.label3.TabIndex = 49;
             this.label3.Text = "Fecha Devolución";
             // 
-            // btnCobroPrenda
-            // 
-            this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCobroPrenda.Location = new System.Drawing.Point(750, 34);
-            this.btnCobroPrenda.Name = "btnCobroPrenda";
-            this.btnCobroPrenda.Size = new System.Drawing.Size(40, 28);
-            this.btnCobroPrenda.TabIndex = 48;
-            this.btnCobroPrenda.UseVisualStyleBackColor = true;
-            // 
             // chkImpagos
             // 
             this.chkImpagos.AutoSize = true;
@@ -211,6 +202,16 @@
             this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
+            // 
+            // btnCobroPrenda
+            // 
+            this.btnCobroPrenda.Image = global::Concesionaria.Properties.Resources.money_euro;
+            this.btnCobroPrenda.Location = new System.Drawing.Point(750, 34);
+            this.btnCobroPrenda.Name = "btnCobroPrenda";
+            this.btnCobroPrenda.Size = new System.Drawing.Size(40, 28);
+            this.btnCobroPrenda.TabIndex = 48;
+            this.btnCobroPrenda.UseVisualStyleBackColor = true;
+            this.btnCobroPrenda.Click += new System.EventHandler(this.btnCobroPrenda_Click);
             // 
             // FrmListadoPrestamoCobrar
             // 

@@ -71,6 +71,7 @@
     <Compile Include="Clases\cCliente.cs" />
     <Compile Include="Clases\cCobranza.cs" />
     <Compile Include="Clases\cCobranzaGeneral.cs" />
+    <Compile Include="Clases\cCobroInteres.cs" />
     <Compile Include="Clases\cComisionVendedor.cs" />
     <Compile Include="Clases\cCompra.cs" />
     <Compile Include="Clases\cConexion.cs" />
@@ -263,6 +264,12 @@
     </Compile>
     <Compile Include="FrmCobroDocumentosAnteriores.Designer.cs">
       <DependentUpon>FrmCobroDocumentosAnteriores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCobroInteres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCobroInteres.Designer.cs">
+      <DependentUpon>FrmCobroInteres.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCobroPrenda.cs">
       <SubType>Form</SubType>
@@ -745,6 +752,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCobroDocumentosAnteriores.resx">
       <DependentUpon>FrmCobroDocumentosAnteriores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCobroInteres.resx">
+      <DependentUpon>FrmCobroInteres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCobroPrenda.resx">
       <DependentUpon>FrmCobroPrenda.cs</DependentUpon>

@@ -18,5 +18,13 @@ namespace Concesionaria.Clases
             sql = sql + ")";
             cDb.ExecutarNonQuery(sql);
         }
+
+        public DataTable GetDetallePrestamo(Int32 CodPrestamo)
+        {
+            string sql = "select Descripcion,Importe,Fecha";
+            sql = sql + " from DetallePrestamoCobrar ";
+            sql = sql + " where CodPrestamo=" + CodPrestamo.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

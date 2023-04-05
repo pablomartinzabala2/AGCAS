@@ -37,5 +37,24 @@ namespace Concesionaria.Clases
             sql = sql + " order by CodPrestamo desc";
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetPrestamoxCodigo(Int32 CodPrestamo)
+        {
+            string sql = "select * from PrestamoCobrar";
+            sql = sql + " where CodPrestamo=" + CodPrestamo.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public void ModificarPorcentajePrestamo(Int32 CodPrestamo, Double PorcentajeInteres,
+         Double ImportePagar, DateTime FechaVencimiento, double Importe)
+        {
+            string sql = "Update PrestamoCobrar ";
+            sql = sql + " set ImporteaPagar =" + ImportePagar.ToString().Replace(",", ".");
+            sql = sql + ",PorcentajeInteres=" + PorcentajeInteres.ToString().Replace(",", ".");
+            sql = sql + ",FechaVencimiento=" + "'" + FechaVencimiento.ToShortDateString() + "'";
+            sql = sql + ",Importe =" + Importe.ToString().Replace(",", ".");
+            sql = sql + " where CodPrestamo =" + CodPrestamo.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
     }
 }

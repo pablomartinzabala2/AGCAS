@@ -79,5 +79,18 @@ namespace Concesionaria
         {
             CargarGrilla();
         }
+
+        private void btnCobroPrenda_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow == null)
+            {
+                MessageBox.Show("Debe ingresar un registro para continuar", Clases.cMensaje.Mensaje());
+                return;
+            }  
+            Int32 CodPrestamo = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            Principal.CodigoPrincipalAbm = CodPrestamo.ToString();
+            FrmCobroInteres form = new FrmCobroInteres();
+            form.ShowDialog();
+        }
     }
 }
