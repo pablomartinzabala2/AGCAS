@@ -76,7 +76,7 @@ namespace Concesionaria
             Clases.cMovimiento mov = new Clases.cMovimiento();
             Clases.cPagoIntereses pago = new Clases.cPagoIntereses();
             pago.RegistrarPago(CodPrestamo, Fecha, Importe);
-            Prestamo.RegistrarDevolucion(CodPrestamo, Fecha);
+         //   Prestamo.RegistrarDevolucion(CodPrestamo, Fecha);
             mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, -1 * Importe, 0, 0, 0, 0, Fecha, Descripcion);
             MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
             CargarGrilla(CodPrestamo);

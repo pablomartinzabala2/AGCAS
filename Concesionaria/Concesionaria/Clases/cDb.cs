@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Windows.Forms;
 using Microsoft.ApplicationBlocks.Data;
-
+using System.Data.SqlClient;
 namespace Concesionaria.Clases
 {
     public static  class cDb

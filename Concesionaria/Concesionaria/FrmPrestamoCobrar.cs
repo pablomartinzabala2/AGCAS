@@ -93,5 +93,35 @@ namespace Concesionaria
             txtImporte.Text = "";
             txtPorcentaje.Text = "";
         }
+
+        private void txtPorcentaje_Leave(object sender, EventArgs e)
+        {
+            CalcularPorcentaje();
+        }
+
+        private void CalcularPorcentaje()
+        {
+            if (txtPorcentaje.Text != "0" && txtImporte.Text != "0")
+            {
+                Clases.cFunciones fun = new Clases.cFunciones();
+                double Por = 0;
+                double Monto = 0;
+                double aPagar = 0;
+                if (txtPorcentaje.Text != "")
+                    Por = Convert.ToDouble(txtPorcentaje.Text);
+
+                if (txtImporte.Text != "")
+                    Monto = fun.ToDouble(txtImporte.Text);
+                aPagar = (Monto * Por) / 100;
+                txtMontoApagar.Text = aPagar.ToString();
+                if (txtMontoApagar.Text != "")
+                {
+                    decimal m = Convert.ToDecimal(aPagar);
+                    txtMontoApagar.Text = decimal.Round(m, 0).ToString();
+                    txtMontoApagar.Text = fun.FormatoEnteroMiles(txtMontoApagar.Text);
+                }
+            }
+
+        }
     }
 }

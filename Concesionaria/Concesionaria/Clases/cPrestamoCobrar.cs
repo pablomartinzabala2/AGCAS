@@ -23,5 +23,19 @@ namespace Concesionaria.Clases
             sql = sql + ")";
             return cDb.EjecutarEscalar(sql);
         }
+
+        public DataTable GetPrestamosxFecha(DateTime FechaDesde, DateTime FechaHasta, string Nombre, int SoloImpago)
+        {
+            string sql = "select CodPrestamo, Nombre,Direccion as Dirección,Telefono as Teléfono,FechaVencimiento,Fecha,Importe,ImporteaPagar,FechaPago";
+            sql = sql + " from PrestamoCobrar ";
+            sql = sql + " where Fecha >=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (Nombre != "")
+                sql = sql + " and Nombre like " + "'" + "%" + Nombre + "%" + "'";
+            if (SoloImpago == 1)
+                sql = sql + " and FechaPago is null";
+            sql = sql + " order by CodPrestamo desc";
+            return cDb.ExecuteDataTable(sql);
+        }
     }
 }

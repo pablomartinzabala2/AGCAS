@@ -646,5 +646,11 @@ namespace Concesionaria
             FrmPrestamoCobrar frm = new FrmPrestamoCobrar();
             frm.Show();
         }
+
+        private void prestamoACobrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoPrestamoCobrar frm = new FrmListadoPrestamoCobrar();
+            frm.Show();
+        }
     }
 }

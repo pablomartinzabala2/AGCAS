@@ -50,6 +50,7 @@
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuPrestamo = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarPrestamoACobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarDocumentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarCobranzasGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuControlOperaciones = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +90,9 @@
             this.registrarGastosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -99,10 +103,7 @@
             this.BtnCopia = new System.Windows.Forms.ToolStripButton();
             this.btnConsultaAgenda = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.registrarPrestamoACobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prestamoACobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -283,6 +284,13 @@
             this.MenuPrestamo.Text = "Registrar Préstamos";
             this.MenuPrestamo.Click += new System.EventHandler(this.MenuPrestamo_Click);
             // 
+            // registrarPrestamoACobrarToolStripMenuItem
+            // 
+            this.registrarPrestamoACobrarToolStripMenuItem.Name = "registrarPrestamoACobrarToolStripMenuItem";
+            this.registrarPrestamoACobrarToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.registrarPrestamoACobrarToolStripMenuItem.Text = "Registrar Prestamo a Cobrar";
+            this.registrarPrestamoACobrarToolStripMenuItem.Click += new System.EventHandler(this.registrarPrestamoACobrarToolStripMenuItem_Click);
+            // 
             // registrarDocumentosToolStripMenuItem
             // 
             this.registrarDocumentosToolStripMenuItem.Name = "registrarDocumentosToolStripMenuItem";
@@ -336,6 +344,7 @@
             this.menuPrendas,
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
+            this.prestamoACobrarToolStripMenuItem,
             this.interesesPagadosToolStripMenuItem,
             this.comisionesToolStripMenuItem,
             this.gastpsToolStripMenuItem,
@@ -603,6 +612,22 @@
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
             // newToolStripButton
             // 
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -706,28 +731,12 @@
             this.toolStripButton2.Size = new System.Drawing.Size(36, 36);
             this.toolStripButton2.Text = "Vehículos";
             // 
-            // statusStrip
+            // prestamoACobrarToolStripMenuItem
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
-            // 
-            // registrarPrestamoACobrarToolStripMenuItem
-            // 
-            this.registrarPrestamoACobrarToolStripMenuItem.Name = "registrarPrestamoACobrarToolStripMenuItem";
-            this.registrarPrestamoACobrarToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
-            this.registrarPrestamoACobrarToolStripMenuItem.Text = "Registrar Prestamo a Cobrar";
-            this.registrarPrestamoACobrarToolStripMenuItem.Click += new System.EventHandler(this.registrarPrestamoACobrarToolStripMenuItem_Click);
+            this.prestamoACobrarToolStripMenuItem.Name = "prestamoACobrarToolStripMenuItem";
+            this.prestamoACobrarToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.prestamoACobrarToolStripMenuItem.Text = "Prestamo a Cobrar";
+            this.prestamoACobrarToolStripMenuItem.Click += new System.EventHandler(this.prestamoACobrarToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -829,6 +838,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAgregarCosto;
         private System.Windows.Forms.ToolStripMenuItem ingresoDeChequeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarPrestamoACobrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prestamoACobrarToolStripMenuItem;
     }
 }
 

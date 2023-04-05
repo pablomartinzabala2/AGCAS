@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dpFechaVto = new System.Windows.Forms.DateTimePicker();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.txtMontoApagar = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,8 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dpFecha = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaVto = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,22 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Prestamos personales a Cobrar";
+            // 
+            // dpFechaVto
+            // 
+            this.dpFechaVto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaVto.Location = new System.Drawing.Point(111, 214);
+            this.dpFechaVto.Name = "dpFechaVto";
+            this.dpFechaVto.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaVto.TabIndex = 73;
+            // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(111, 126);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 23);
+            this.dpFecha.TabIndex = 72;
             // 
             // txtMontoApagar
             // 
@@ -120,6 +136,7 @@
             this.txtPorcentaje.Name = "txtPorcentaje";
             this.txtPorcentaje.Size = new System.Drawing.Size(103, 23);
             this.txtPorcentaje.TabIndex = 25;
+            this.txtPorcentaje.Leave += new System.EventHandler(this.txtPorcentaje_Leave);
             // 
             // txtImporte
             // 
@@ -202,22 +219,6 @@
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
-            // 
-            // dpFecha
-            // 
-            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(111, 126);
-            this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(87, 23);
-            this.dpFecha.TabIndex = 72;
-            // 
-            // dpFechaVto
-            // 
-            this.dpFechaVto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaVto.Location = new System.Drawing.Point(111, 214);
-            this.dpFechaVto.Name = "dpFechaVto";
-            this.dpFechaVto.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaVto.TabIndex = 73;
             // 
             // FrmPrestamoCobrar
             // 
