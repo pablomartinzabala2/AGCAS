@@ -75,8 +75,21 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
             sql = "delete from chequecobrar";
             cDb.ExecutarNonQuery(sql);
+            sql = "delete from prestamo ";
+            cDb.ExecutarNonQuery(sql);
+            sql = "delete from DetallePrestamo ";
+            cDb.ExecutarNonQuery(sql);
+            sql = "delete from PagosIntereses ";
+            cDb.ExecutarNonQuery(sql);
+
+            sql = "delete from PrestamoCobrar ";
+            cDb.ExecutarNonQuery(sql);
+            sql = "delete from DetallePrestamoCobrar ";
+            cDb.ExecutarNonQuery(sql);
+            sql = "delete from CobroIntereses ";
+            cDb.ExecutarNonQuery(sql);
             //chequecobrar
-            
+
         }
     }
 }

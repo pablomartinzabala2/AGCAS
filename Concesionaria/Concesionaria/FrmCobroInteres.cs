@@ -17,11 +17,11 @@ namespace Concesionaria
         }
 
         private void FrmCobroInteres_Load(object sender, EventArgs e)
-        {
+        {    
             CmbOpciones.Items.Add("Agregar");
             CmbOpciones.Items.Add("Descontar");
             CmbOpciones.SelectedIndex = 0;
-            txtFechaPago.Text = DateTime.Now.ToShortDateString();
+            dpFechaPago.Value = DateTime.Now;
             if (Principal.CodigoPrincipalAbm != null)
             {
                 GetDatosxPrestamo(Convert.ToInt32(Principal.CodigoPrincipalAbm));
@@ -35,13 +35,15 @@ namespace Concesionaria
             Clases.cPrestamoCobrar prestamo = new Clases.cPrestamoCobrar();
             DataTable trdo = prestamo.GetPrestamoxCodigo(CodPrestamo);
             if (trdo.Rows.Count > 0)
-            {
+            {  
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
-                txtFecha.Text = trdo.Rows[0]["Fecha"].ToString();
+                if (trdo.Rows[0]["Fecha"].ToString()!="")
+                    dpFecha.Value  = Convert.ToDateTime (trdo.Rows[0]["Fecha"].ToString());
                 txtPorcentaje.Text = trdo.Rows[0]["PorcentajeInteres"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
-                txtFechaVencimiento.Text = trdo.Rows[0]["FechaVencimiento"].ToString();
+                if (trdo.Rows[0]["FechaVencimiento"].ToString()!="")
+                    dpFechaVencimiento.Value =Convert.ToDateTime (trdo.Rows[0]["FechaVencimiento"].ToString());
                 txtMontoApagar.Text = trdo.Rows[0]["ImporteaPagar"].ToString();
                 txtImporte.Text = trdo.Rows[0]["Importe"].ToString();
                 if (txtMontoApagar.Text != "")
@@ -74,14 +76,16 @@ namespace Concesionaria
         }
 
         private void CargarGrilla(Int32 CodPrestamo)
-        { /*
+        {
+            cCobroInteres cobro = new cCobroInteres();
             Clases.cFunciones fun = new Clases.cFunciones();
             Clases.cPagoIntereses pago = new Clases.cPagoIntereses();
-            DataTable trdo = pago.GetInteresesPagadosxCodPrestamo(CodPrestamo);
-            trdo = fun.TablaaFechas(trdo, "Importe");
+            // DataTable trdo = pago.GetInteresesPagadosxCodPrestamo(CodPrestamo);
+            DataTable trdo = cobro.GetInteresesPagadosxCodPrestamo(CodPrestamo);
+           trdo = fun.TablaaFechas(trdo, "Importe");
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "0;50;50");
-            */
+            fun.AnchoColumnas(Grilla, "0;37;63");
+            
         }
 
         private void CargarDetalle(Int32 CodPrestamo)
@@ -105,9 +109,9 @@ namespace Concesionaria
             }
 
             Int32 CodPrestamo = Convert.ToInt32(Principal.CodigoPrincipalAbm);
-            DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
+            DateTime Fecha = dpFechaPago.Value;
             double Importe = fun.ToDouble(txtMontoModificar.Text);
-            string DescripcionDetalle = "INGRESO PRESTAMO " + Importe.ToString().Replace(",", ".");
+            string DescripcionDetalle = "INGRESO PRESTAMO A COBRAR " + Importe.ToString().Replace(",", ".");
             double MontoAnterio = fun.ToDouble(txtImporte.Text);
             double MontoModificar = fun.ToDouble(txtMontoModificar.Text);
             if (CmbOpciones.SelectedIndex == 0)
@@ -130,18 +134,18 @@ namespace Concesionaria
             double Por = Convert.ToDouble(txtPorcentaje.Text.Replace(".", ","));
             double MontoFinal = fun.ToDouble(txtImporte.Text);
             double ImporteaPagar = fun.ToDouble(txtMontoApagar.Text);
-            DateTime FechaVencimiento = Convert.ToDateTime(txtFechaVencimiento.Text);
+            DateTime FechaVencimiento = dpFechaVencimiento.Value;
              
             Clases.cPrestamoCobrar prestamo = new Clases.cPrestamoCobrar();
             prestamo.ModificarPorcentajePrestamo(CodPrestamo, Por, ImporteaPagar, Fecha, MontoFinal);
             CargarDetalle(CodPrestamo);
             string DescripcionMovimiento = "";
             if (MontoModificar > 0)
-                DescripcionMovimiento = " INGRESO PRESTAMO " + txtNombre.Text;
+                DescripcionMovimiento = " INGRESO PRESTAMO A COBRAR" + txtNombre.Text;
             else
-                DescripcionMovimiento = " RETIRO PRESTAMO " + txtNombre.Text;
+                DescripcionMovimiento = " RETIRO PRESTAMO A COBRAR" + txtNombre.Text;
             Clases.cMovimiento mov = new Clases.cMovimiento();
-            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, MontoModificar, 0, 0, 0, 0, Fecha, DescripcionMovimiento);
+            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, (-1) * MontoModificar, 0, 0, 0, 0, Fecha, DescripcionMovimiento);
             MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
         }
 
@@ -174,7 +178,7 @@ namespace Concesionaria
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFechaPago.Text) == false)
+            if (fun.ValidarFecha(dpFechaPago.Value.ToShortDateString ()) == false)
             {
                 MessageBox.Show("La fecha de pago es incorrecta", Clases.cMensaje.Mensaje());
                 return;
@@ -182,7 +186,7 @@ namespace Concesionaria
 
             string Descripcion = "COBRO DE INTERÉS " + txtNombre.Text.ToString();
             Int32 CodPrestamo = Convert.ToInt32(Principal.CodigoPrincipalAbm);
-            DateTime Fecha = Convert.ToDateTime(txtFechaPago.Text);
+            DateTime Fecha = Convert.ToDateTime(dpFechaPago.Value);
             double Importe = fun.ToDouble(txtMontoApagar.Text);
             cPrestamo Prestamo = new cPrestamo();
              

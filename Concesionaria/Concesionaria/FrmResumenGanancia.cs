@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Concesionaria.Clases;
 namespace Concesionaria
 {
     public partial class FrmResumenGanancia : Form
@@ -80,11 +80,15 @@ namespace Concesionaria
             double TotalPago = objpago.GetResumenPagosInteresesxFecha(FechaDesde, FechaHasta);
             txtInteresesPagados.Text = fun.SepararDecimales(TotalPago.ToString());
             txtInteresesPagados.Text = fun.FormatoEnteroMiles(txtInteresesPagados.Text);
+            //esta info viene de el cobro de intereses generados por prestamos a cobrar
+            cCobroInteres cobro = new cCobroInteres();
+            Double TotalCobroInteres = cobro.GetResumenCobroInteresesxFecha(FechaDesde, FechaHasta);
+
             double InteresesGanados = 0;
             Clases.cCuotasAnteriores cuotasAnt = new Clases.cCuotasAnteriores();
             Clases.cCuota cuota = new Clases.cCuota();
             InteresesGanados = cuota.GetGanaciaCobroCuotas(FechaDesde, FechaHasta);
-            InteresesGanados = InteresesGanados + cuotasAnt.GetGanaciaCobroCuotas(FechaDesde, FechaHasta);
+            InteresesGanados = InteresesGanados + TotalCobroInteres + cuotasAnt.GetGanaciaCobroCuotas(FechaDesde, FechaHasta);
             txtInteresesGanados.Text = InteresesGanados.ToString();
             txtInteresesGanados.Text = fun.FormatoEnteroMiles(txtInteresesGanados.Text);
             double Ganancia = Utilidad + TotalPunitorio  - TotalPago - TotalGastos + InteresesGanados;

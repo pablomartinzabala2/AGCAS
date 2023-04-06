@@ -18,7 +18,7 @@ namespace Concesionaria
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.ToUpper() != "PABLO")
+            if (textBox1.Text.ToUpper() != "IACC")
             {
                 MessageBox.Show("Ingresar clave");
                 return;

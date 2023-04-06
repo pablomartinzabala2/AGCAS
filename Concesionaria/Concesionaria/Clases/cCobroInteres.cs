@@ -21,7 +21,7 @@ namespace Concesionaria.Clases
 
         public DataTable GetInteresesPagadosxCodPrestamo(Int32 CodPrestamo)
         {
-            string sql = "select CodPago, Fecha,Importe ";
+            string sql = "select CodCobro, Fecha,Importe ";
             sql = sql + " from CobroIntereses ";
             sql = sql + " where CodPrestamo=" + CodPrestamo.ToString();
             return cDb.ExecuteDataTable(sql);
@@ -44,7 +44,7 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public double GetResumenPagosInteresesxFecha(DateTime FechaDesde, DateTime FechaHasta)
+        public double GetResumenCobroInteresesxFecha(DateTime FechaDesde, DateTime FechaHasta)
         {
             double Importe = 0;
             string sql = "select sum(Importe) as Total from CobroIntereses ";

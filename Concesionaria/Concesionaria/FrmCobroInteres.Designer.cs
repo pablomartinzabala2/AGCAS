@@ -29,24 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtMontoModificar = new System.Windows.Forms.TextBox();
             this.CmbOpciones = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.GrillaDetallePrestamo = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtFechaPago = new System.Windows.Forms.MaskedTextBox();
             this.txtMontoApagar = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtFechaVencimiento = new System.Windows.Forms.MaskedTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.txtPorcentaje = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,8 +54,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaPago = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePrestamo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
@@ -65,6 +65,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.dpFechaPago);
+            this.groupBox1.Controls.Add(this.dpFechaVencimiento);
+            this.groupBox1.Controls.Add(this.dpFecha);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnModificar);
             this.groupBox1.Controls.Add(this.txtMontoModificar);
@@ -75,16 +78,13 @@
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtFechaPago);
             this.groupBox1.Controls.Add(this.txtMontoApagar);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtFechaVencimiento);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnGrabar);
             this.groupBox1.Controls.Add(this.txtPorcentaje);
             this.groupBox1.Controls.Add(this.txtImporte);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.txtDireccion);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label5);
@@ -100,6 +100,15 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Préstamos personales a Cobrar";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Concesionaria.Properties.Resources.email;
+            this.button1.Location = new System.Drawing.Point(601, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 29);
+            this.button1.TabIndex = 61;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnModificar
             // 
@@ -123,7 +132,7 @@
             // 
             this.CmbOpciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbOpciones.FormattingEnabled = true;
-            this.CmbOpciones.Location = new System.Drawing.Point(29, 212);
+            this.CmbOpciones.Location = new System.Drawing.Point(56, 212);
             this.CmbOpciones.Name = "CmbOpciones";
             this.CmbOpciones.Size = new System.Drawing.Size(100, 24);
             this.CmbOpciones.TabIndex = 39;
@@ -156,6 +165,15 @@
             this.label9.TabIndex = 36;
             this.label9.Text = "Intereses Pagados";
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
+            this.btnEliminar.Location = new System.Drawing.Point(713, 280);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(40, 28);
+            this.btnEliminar.TabIndex = 35;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -175,19 +193,10 @@
             this.label10.TabIndex = 33;
             this.label10.Text = "Ingresar Fecha";
             // 
-            // txtFechaPago
-            // 
-            this.txtFechaPago.Location = new System.Drawing.Point(126, 154);
-            this.txtFechaPago.Mask = "00/00/0000";
-            this.txtFechaPago.Name = "txtFechaPago";
-            this.txtFechaPago.Size = new System.Drawing.Size(100, 23);
-            this.txtFechaPago.TabIndex = 32;
-            this.txtFechaPago.ValidatingType = typeof(System.DateTime);
-            // 
             // txtMontoApagar
             // 
             this.txtMontoApagar.Enabled = false;
-            this.txtMontoApagar.Location = new System.Drawing.Point(489, 95);
+            this.txtMontoApagar.Location = new System.Drawing.Point(492, 95);
             this.txtMontoApagar.Name = "txtMontoApagar";
             this.txtMontoApagar.ReadOnly = true;
             this.txtMontoApagar.Size = new System.Drawing.Size(103, 23);
@@ -198,18 +207,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(416, 95);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 17);
+            this.label8.Size = new System.Drawing.Size(64, 17);
             this.label8.TabIndex = 29;
-            this.label8.Text = "A pagar";
-            // 
-            // txtFechaVencimiento
-            // 
-            this.txtFechaVencimiento.Location = new System.Drawing.Point(126, 124);
-            this.txtFechaVencimiento.Mask = "00/00/0000";
-            this.txtFechaVencimiento.Name = "txtFechaVencimiento";
-            this.txtFechaVencimiento.Size = new System.Drawing.Size(100, 23);
-            this.txtFechaVencimiento.TabIndex = 28;
-            this.txtFechaVencimiento.ValidatingType = typeof(System.DateTime);
+            this.label8.Text = "A Cobrar";
             // 
             // label7
             // 
@@ -254,16 +254,6 @@
             this.label6.Size = new System.Drawing.Size(67, 17);
             this.label6.TabIndex = 23;
             this.label6.Text = "% Interés";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(492, 63);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.ReadOnly = true;
-            this.txtFecha.Size = new System.Drawing.Size(100, 23);
-            this.txtFecha.TabIndex = 22;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
             // txtDireccion
             // 
@@ -311,7 +301,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(416, 37);
+            this.label2.Location = new System.Drawing.Point(416, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 2;
@@ -334,23 +324,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // button1
+            // dpFecha
             // 
-            this.button1.Image = global::Concesionaria.Properties.Resources.email;
-            this.button1.Location = new System.Drawing.Point(598, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 29);
-            this.button1.TabIndex = 61;
-            this.button1.UseVisualStyleBackColor = true;
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(492, 64);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 23);
+            this.dpFecha.TabIndex = 70;
             // 
-            // btnEliminar
+            // dpFechaVencimiento
             // 
-            this.btnEliminar.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(713, 280);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(40, 28);
-            this.btnEliminar.TabIndex = 35;
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.dpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaVencimiento.Location = new System.Drawing.Point(126, 125);
+            this.dpFechaVencimiento.Name = "dpFechaVencimiento";
+            this.dpFechaVencimiento.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaVencimiento.TabIndex = 71;
+            // 
+            // dpFechaPago
+            // 
+            this.dpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaPago.Location = new System.Drawing.Point(126, 154);
+            this.dpFechaPago.Name = "dpFechaPago";
+            this.dpFechaPago.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaPago.TabIndex = 72;
             // 
             // FrmCobroInteres
             // 
@@ -386,16 +382,13 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.MaskedTextBox txtFechaPago;
         private System.Windows.Forms.TextBox txtMontoApagar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox txtFechaVencimiento;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.TextBox txtPorcentaje;
         private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label5;
@@ -404,5 +397,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dpFecha;
+        private System.Windows.Forms.DateTimePicker dpFechaVencimiento;
+        private System.Windows.Forms.DateTimePicker dpFechaPago;
     }
 }

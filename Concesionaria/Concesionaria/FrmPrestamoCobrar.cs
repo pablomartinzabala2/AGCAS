@@ -79,8 +79,8 @@ namespace Concesionaria
 
             CodPrestamo = prestamo.InsertarPrestamo(Nombre, Telefono, Dirección, Fecha, Importe, PorcentajeInteres, FechaVencimiento, ImporteaPagar);
            // Int32 CodPrestamo = prestamo.GetMaxPrestamo();
-            string Descripcion = "INGRESO PRESTAMO " + txtNombre.Text.ToUpper();
-            string DescripcionDetalle = "INGRESO PRESTAMO " + Importe.ToString().Replace(",", ".");
+            string Descripcion = "INGRESO PRESTAMO A COBRAR " + txtNombre.Text.ToUpper();
+            string DescripcionDetalle = "INGRESO PRESTAMO A COBRAR " + Importe.ToString().Replace(",", ".");
             cDetallePrestamoCobrar detalle = new Clases.cDetallePrestamoCobrar();
             detalle.InsertarDetallePrestamo(CodPrestamo, Importe, DescripcionDetalle, Fecha);
             Clases.cMovimiento mov = new Clases.cMovimiento();
