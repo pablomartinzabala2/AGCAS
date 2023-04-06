@@ -62,7 +62,9 @@ namespace Concesionaria
 
         private void VerificarPagoInteres(Int32 CodPrestamo)
         {
-            Clases.cPrestamo prestamo = new Clases.cPrestamo();
+             
+           // Clases.cPrestamo prestamo = new Clases.cPrestamo();
+            cPrestamoCobrar prestamo = new cPrestamoCobrar();
             DataTable trdo = prestamo.GetPrestamoxCodigo(CodPrestamo);
             if (trdo.Rows.Count > 0)
             {

@@ -40,7 +40,7 @@ namespace Concesionaria.Clases
 
         public DataTable GetPrestamoxCodigo(Int32 CodPrestamo)
         {
-            string sql = "select * from PrestamoCobrar";
+            string sql = "select * from PrestamoCobrar ";
             sql = sql + " where CodPrestamo=" + CodPrestamo.ToString();
             return cDb.ExecuteDataTable(sql);
         }
@@ -53,6 +53,13 @@ namespace Concesionaria.Clases
             sql = sql + ",PorcentajeInteres=" + PorcentajeInteres.ToString().Replace(",", ".");
             sql = sql + ",FechaVencimiento=" + "'" + FechaVencimiento.ToShortDateString() + "'";
             sql = sql + ",Importe =" + Importe.ToString().Replace(",", ".");
+            sql = sql + " where CodPrestamo =" + CodPrestamo.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
+        public void RegistrarDevolucion(Int32 CodPrestamo, DateTime Fecha)
+        {
+            string sql = "update PrestamoCobrar set FechaPago =" + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + " where CodPrestamo =" + CodPrestamo.ToString();
             cDb.ExecutarNonQuery(sql);
         }

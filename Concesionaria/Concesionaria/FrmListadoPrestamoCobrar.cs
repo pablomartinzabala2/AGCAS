@@ -95,7 +95,40 @@ namespace Concesionaria
 
         private void btnRegistrarPago_Click(object sender, EventArgs e)
         {
-            111
+            Clases.cFunciones fun = new Clases.cFunciones();
+            if (Grilla.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un registro para continuar", Clases.cMensaje.Mensaje());
+                return;
+            }
+
+            if (fun.ValidarFecha(txtFechaDevolucion.Text) == false)
+            {
+                MessageBox.Show("La fecha de devolución es incorrecta", Clases.cMensaje.Mensaje());
+                return;
+            }
+
+            if (Grilla.CurrentRow.Cells[8].Value.ToString() != "")
+            {
+                MessageBox.Show("Ya se ha registrado el pago del préstamo", Clases.cMensaje.Mensaje());
+                return;
+            }
+
+             
+            Int32 CodPrestamo = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            DateTime FechaPago = Convert.ToDateTime(txtFechaDevolucion.Text);
+            string Nombre = Grilla.CurrentRow.Cells[1].Value.ToString();
+            string Descripcion = "COBRO PRESTAMO " + Nombre.ToString();
+            double Importe = fun.ToDouble(Grilla.CurrentRow.Cells[6].Value.ToString());
+            //Clases.cPrestamo prestamo = new Clases.cPrestamo();
+            //prestamo.RegistrarDevolucion(CodPrestamo, FechaPago);
+            cPrestamoCobrar prestamo = new cPrestamoCobrar();
+            prestamo.RegistrarDevolucion(CodPrestamo, FechaPago);
+
+            Clases.cMovimiento mov = new Clases.cMovimiento();
+            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado,  Importe, 0, 0, 0, 0, FechaPago, Descripcion);
+            MessageBox.Show("Datos registrados correctametne", Clases.cMensaje.Mensaje());
+            CargarGrilla();
         }
     }
 }
