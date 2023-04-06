@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnRegistrarPago = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +72,24 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de préstamo";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(1017, 477);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotal.Size = new System.Drawing.Size(100, 23);
+            this.txtTotal.TabIndex = 55;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(971, 477);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 17);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "Total";
             // 
             // label4
             // 
@@ -105,7 +123,7 @@
             this.txtFechaDevolucion.Location = new System.Drawing.Point(923, 35);
             this.txtFechaDevolucion.Mask = "00/00/0000";
             this.txtFechaDevolucion.Name = "txtFechaDevolucion";
-            this.txtFechaDevolucion.Size = new System.Drawing.Size(100, 23);
+            this.txtFechaDevolucion.Size = new System.Drawing.Size(88, 23);
             this.txtFechaDevolucion.TabIndex = 50;
             this.txtFechaDevolucion.ValidatingType = typeof(System.DateTime);
             // 
@@ -195,24 +213,6 @@
             this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 40;
             this.label2.Text = "Hasta";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(971, 477);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 17);
-            this.label5.TabIndex = 54;
-            this.label5.Text = "Total";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(1017, 477);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotal.Size = new System.Drawing.Size(100, 23);
-            this.txtTotal.TabIndex = 55;
             // 
             // FrmListadoPrestamo
             // 

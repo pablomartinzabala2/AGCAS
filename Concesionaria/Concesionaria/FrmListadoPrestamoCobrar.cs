@@ -92,5 +92,10 @@ namespace Concesionaria
             FrmCobroInteres form = new FrmCobroInteres();
             form.ShowDialog();
         }
+
+        private void btnRegistrarPago_Click(object sender, EventArgs e)
+        {
+            111
+        }
     }
 }
