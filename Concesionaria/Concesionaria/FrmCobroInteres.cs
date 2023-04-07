@@ -202,5 +202,18 @@ namespace Concesionaria
             GetDatosxPrestamo(CodPrestamo);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Principal.CodigoPrincipalAbm == null)
+            {
+                MessageBox.Show("Debe ingresar un registro para continuar", Clases.cMensaje.Mensaje());
+                return;
+            }
+            Principal.CampoNombreSecundario = Principal.CodigoPrincipalAbm;
+            Principal.NombreTablaSecundario = "MensajesPrestamosCobrar";
+            FrmMensaje form = new FrmMensaje();
+            form.ShowDialog();
+        }
     }
 }

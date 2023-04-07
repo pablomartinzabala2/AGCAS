@@ -99,6 +99,7 @@
     <Compile Include="Clases\cMensajeCobranza.cs" />
     <Compile Include="Clases\cMensajeCuotasAnteriores.cs" />
     <Compile Include="Clases\cMensajeEfectivoPagar.cs" />
+    <Compile Include="Clases\cMensajePrestamoCobrar.cs" />
     <Compile Include="Clases\cMensajesCuotas.cs" />
     <Compile Include="Clases\cMensajesPrestamo.cs" />
     <Compile Include="Clases\cMensajesVentas.cs" />

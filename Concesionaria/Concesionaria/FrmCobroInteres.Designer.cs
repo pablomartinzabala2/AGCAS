@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dpFechaPago = new System.Windows.Forms.DateTimePicker();
+            this.dpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtMontoModificar = new System.Windows.Forms.TextBox();
@@ -54,9 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dpFecha = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
-            this.dpFechaPago = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaDetallePrestamo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
@@ -101,6 +101,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Préstamos personales a Cobrar";
             // 
+            // dpFechaPago
+            // 
+            this.dpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaPago.Location = new System.Drawing.Point(126, 154);
+            this.dpFechaPago.Name = "dpFechaPago";
+            this.dpFechaPago.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaPago.TabIndex = 72;
+            // 
+            // dpFechaVencimiento
+            // 
+            this.dpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFechaVencimiento.Location = new System.Drawing.Point(126, 125);
+            this.dpFechaVencimiento.Name = "dpFechaVencimiento";
+            this.dpFechaVencimiento.Size = new System.Drawing.Size(87, 23);
+            this.dpFechaVencimiento.TabIndex = 71;
+            // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(492, 64);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(87, 23);
+            this.dpFecha.TabIndex = 70;
+            // 
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.email;
@@ -109,6 +133,7 @@
             this.button1.Size = new System.Drawing.Size(40, 29);
             this.button1.TabIndex = 61;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnModificar
             // 
@@ -323,30 +348,6 @@
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
-            // 
-            // dpFecha
-            // 
-            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFecha.Location = new System.Drawing.Point(492, 64);
-            this.dpFecha.Name = "dpFecha";
-            this.dpFecha.Size = new System.Drawing.Size(87, 23);
-            this.dpFecha.TabIndex = 70;
-            // 
-            // dpFechaVencimiento
-            // 
-            this.dpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaVencimiento.Location = new System.Drawing.Point(126, 125);
-            this.dpFechaVencimiento.Name = "dpFechaVencimiento";
-            this.dpFechaVencimiento.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaVencimiento.TabIndex = 71;
-            // 
-            // dpFechaPago
-            // 
-            this.dpFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpFechaPago.Location = new System.Drawing.Point(126, 154);
-            this.dpFechaPago.Name = "dpFechaPago";
-            this.dpFechaPago.Size = new System.Drawing.Size(87, 23);
-            this.dpFechaPago.TabIndex = 72;
             // 
             // FrmCobroInteres
             // 

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using Concesionaria.Clases;
 namespace Concesionaria
 {
     public partial class FrmMensaje : Form
@@ -82,6 +82,19 @@ namespace Concesionaria
                 Grilla.DataSource = trdo;
                 txtMensaje.Text = "";
             }
+
+            if (Principal.NombreTablaSecundario == "MensajesPrestamosCobrar")
+            {    
+                Clases.cMensajePrestamoCobrar msjCob = new Clases.cMensajePrestamoCobrar();
+                string Mensaje = txtMensaje.Text;
+                Int32 CodPrestamo = Convert.ToInt32(txtCodigo.Text);
+                DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+                msjCob.InsertarMensaje(Mensaje, Fecha, CodPrestamo);
+                MessageBox.Show("Datos Grabados Correctamente", Clases.cMensaje.Mensaje());
+                DataTable trdo = msjCob.GetMensajesxCodPrestamo(CodPrestamo);
+                Grilla.DataSource = trdo;
+                txtMensaje.Text = "";
+            }
         }
 
         private void FrmMensaje_Load(object sender, EventArgs e)
@@ -124,7 +137,19 @@ namespace Concesionaria
                 Grilla.Columns[1].Width = 400;
             }
 
-           
+            if (Principal.NombreTablaSecundario == "MensajesPrestamosCobrar")
+            {   
+                Int32 CodPrestamo = Convert.ToInt32(txtCodigo.Text);
+                Clases.cMensajePrestamoCobrar msj = new Clases.cMensajePrestamoCobrar();
+                DataTable trdo = msj.GetMensajesxCodPrestamo(CodPrestamo);
+                Grilla.DataSource = trdo;
+                Grilla.Columns[1].Width = 400;
+            }
+
+            
+
+
+
         }
 
         private void Grilla_CellClick(object sender, DataGridViewCellEventArgs e)
