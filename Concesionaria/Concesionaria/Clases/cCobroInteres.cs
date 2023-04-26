@@ -27,10 +27,10 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
-        public void BorrarPago(Int32 CodPago)
+        public void BorrarCobro(Int32 CodPago)
         {
             string sql = "delete from CobroIntereses ";
-            sql = sql + " where CodPago =" + CodPago.ToString();
+            sql = sql + " where CodCobro =" + CodPago.ToString();
             cDb.ExecutarNonQuery(sql);
         }
 

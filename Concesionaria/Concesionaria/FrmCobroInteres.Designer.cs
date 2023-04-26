@@ -198,6 +198,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 35;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Grilla
             // 

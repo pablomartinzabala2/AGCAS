@@ -215,5 +215,54 @@ namespace Concesionaria
             FrmMensaje form = new FrmMensaje();
             form.ShowDialog();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Clases.cFunciones fun = new Clases.cFunciones();
+            if (Grilla.CurrentRow == null)
+            {
+                MessageBox.Show("Debe seleccionar un registro para continuar", Clases.cMensaje.Mensaje());
+                return;
+            }
+            
+            if (fun.ValidarFecha(dpFechaPago.Value.ToShortDateString()) == false)
+            {
+                MessageBox.Show("La fecha de Cobro Ingresada es incorrecta", Clases.cMensaje.Mensaje());
+                return;
+            }
+            string msj = "Confirma eliminar el Cobro ";
+            var result = MessageBox.Show(msj, "Información",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            DateTime Fecha = dpFechaPago.Value;
+            Int32 CodCobro = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value);
+            double Importe = fun.ToDouble(Grilla.CurrentRow.Cells[2].Value.ToString());
+            cCobroInteres cobro = new cCobroInteres();
+            cobro.BorrarCobro(CodCobro);
+            string Descripcion = "ANULACION COBRO " + txtNombre.Text;
+            Clases.cMovimiento mov = new Clases.cMovimiento();
+            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, (-1)*Importe, 0, 0, 0, 0, Fecha, Descripcion);
+            MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
+            if (Principal.CodigoPrincipalAbm != null)
+            {
+                Int32 CodPrestamo = Convert.ToInt32(Convert.ToInt32(Principal.CodigoPrincipalAbm));
+                CargarGrilla(CodPrestamo);
+            }
+            /*
+            Clases.cPagoIntereses Pago = new Clases.cPagoIntereses();
+            Pago.BorrarPago(CodPago);
+            string Descripcion = "ANULACION PAGO " + txtNombre.Text;
+            Clases.cMovimiento mov = new Clases.cMovimiento();
+            mov.RegistrarMovimientoDescripcion(-1, Principal.CodUsuarioLogueado, Importe, 0, 0, 0, 0, Fecha, Descripcion);
+            MessageBox.Show("Datos grabados correctamente", Clases.cMensaje.Mensaje());
+            */
+        }
     }
 }
